@@ -1,4 +1,5 @@
-import { Task } from "../models/Task.js";
+import { Task } from "../persintence/models/Task.js";
+
 
 export async function createTask(req, res) {
   try {

@@ -1,5 +1,8 @@
-import { Project } from "../models/Project.js";
-import { Task } from "../models/Task.js";
+import { Task } from "../persintence/models/Task.js";
+import { Project } from "../persintence/models/Project.js";
+
+
+
 
 export async function getProjects(req, res) {
   try {
