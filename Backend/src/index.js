@@ -1,5 +1,5 @@
 import app from "./app.js";
-import { sequelize } from "./database/database.js";
+import { sequelize } from "./persintence/database/database.js";
 
 async function main() {
   await sequelize.sync({force: false});
