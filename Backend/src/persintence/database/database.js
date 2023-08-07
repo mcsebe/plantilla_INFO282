@@ -4,7 +4,7 @@ import dotenv from 'dotenv'
 export const sequelize = new Sequelize(
   "test",
   "root",
-  "1306",
+  "",
   
   {
     host: "localhost",
