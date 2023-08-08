@@ -30,18 +30,20 @@ export async function getPapers_(){
 }
 
 export async function updatePaper_(paper){
-    const { id, name, date, description } = paper
+    const { id, name, date, description  } = paper
     try {
          
         const paper_update = await Paper.findByPk(id);
+        console.log(paper_update)
         paper_update.name = name;
         paper_update.date = date;
         paper_update.description = description;
-        await paper.save();
+        await paper_update.save();
         return "se modifico correctamente" 
     } catch (error) {
+        console.log(error)
         throw new Error("Sucedio un error......")
-    }
+    }  
 
 }
 

@@ -55,10 +55,10 @@ export const updateUser = async (req, res) => {
   
 };
 
-export async function deleteUser(req, res) {
+export  function deleteUser(req, res) {
   const { id } = req.params;
   deleteUser_(id).then(msg => {
-    res.status(204).json({status : true, msg : msg })
+    res.status(200).json({status : true, msg : msg })
   }, error => {
     res.status(400).json({status : false, error : error.message })
   })

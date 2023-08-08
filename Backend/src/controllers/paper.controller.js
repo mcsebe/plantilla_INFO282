@@ -28,7 +28,7 @@ export async function getPapers(req, res) {
 export async function updatePaper(req, res) {
  
     const { id } = req.params;
-    const { name, date, description } = req.body;
+    const { name, date, description ,  userId } = req.body;
     const paper = { 
       id,
       name,
