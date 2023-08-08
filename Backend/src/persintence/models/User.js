@@ -26,7 +26,7 @@ export const User = sequelize.define(
 );
 
 User.hasMany(Paper, {
-  foreinkey: "idUser",
+  foreinkey: "userId",
   sourceKey: "id",
 });
-Paper.belongsTo(User, { foreinkey: "idUser", targetId: "id" });
+Paper.belongsTo(User, { foreinkey: "userId", targetId: "id" });
