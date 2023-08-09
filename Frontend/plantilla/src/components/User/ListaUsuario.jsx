@@ -1,7 +1,7 @@
 
 import React, { useEffect, useState } from 'react';
 import clientAxios from '../config/clienteAxios';
-
+import UsuarioCard from './UsuarioCard';
 function ListaUsuarios() {
     const [usuarios , setUsuario ] = useState([]);
     useEffect (() => {
@@ -27,11 +27,7 @@ function ListaUsuarios() {
           <ul>
             {usuarios.length > 0 ? (
               usuarios.map((usuario, index) => (
-                    <li key={index} className="mb-4">
-                    <strong>Nombre:</strong> {usuario.name}<br />
-                    <strong>RUT:</strong> {usuario.rut}<br />
-                    <strong>Email:</strong> {usuario.mail}<br /><br />
-                    </li>
+                    <UsuarioCard key={index} usuario={usuario}/>
               ))
             ) : (
               <li>No hay usuarios registrados.</li>

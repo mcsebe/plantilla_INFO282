@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import clientAxios from '../config/clienteAxios';
 
+
 const Formulario = () => {
     const [nombre, setNombre] = useState('');
   const [rut, setRut] = useState('');
@@ -32,7 +33,7 @@ const Formulario = () => {
   };
 
   return (
-    <div className="w-1/2 p-4 bg-white rounded shadow-md">
+    <div className="w-1/2 p-4 bg-white  shadow-md">
       <h2 className="text-xl font-semibold mb-4">Formulario de Registro</h2>
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
