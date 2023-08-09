@@ -15,7 +15,7 @@ function ListaUsuarios() {
 
         const fetchPosts = async () => {
             const res = await clientAxios.get('/users/');
-            setUsuario(res.data);
+            setUsuario(res.data.data);
           };
           fetchPosts();
 
@@ -27,11 +27,11 @@ function ListaUsuarios() {
           <ul>
             {usuarios.length > 0 ? (
               usuarios.map((usuario, index) => (
-                <li key={index} className="mb-4">
-                  <strong>Nombre:</strong> {usuario.name}<br />
-                  <strong>RUT:</strong> {usuario.rut}<br />
-                  <strong>Email:</strong> {usuario.mail}<br /><br />
-                </li>
+                    <li key={index} className="mb-4">
+                    <strong>Nombre:</strong> {usuario.name}<br />
+                    <strong>RUT:</strong> {usuario.rut}<br />
+                    <strong>Email:</strong> {usuario.mail}<br /><br />
+                    </li>
               ))
             ) : (
               <li>No hay usuarios registrados.</li>
