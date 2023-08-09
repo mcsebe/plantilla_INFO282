@@ -5,13 +5,6 @@ import UsuarioCard from './UsuarioCard';
 function ListaUsuarios() {
     const [usuarios , setUsuario ] = useState([]);
     useEffect (() => {
-        //  clientAxios.get(`/users/`).then(res => {
-        //     setUsuario(res.data)
-        //     console.log(usuarios)
-        // }).catch(error =>{
-        //     console.log("Error... ")
-        // })
-
 
         const fetchPosts = async () => {
             const res = await clientAxios.get('/users/');

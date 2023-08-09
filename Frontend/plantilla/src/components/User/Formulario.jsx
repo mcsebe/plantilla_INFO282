@@ -9,10 +9,6 @@ const Formulario = () => {
 
   const handleSubmit =  async(e) => {
     e.preventDefault();
-    console.log('Nombre:', nombre);
-    console.log('RUT:', rut);
-    console.log('Email:', email);
-
 
     try {
       
@@ -25,9 +21,7 @@ const Formulario = () => {
     } catch (error) {
         console.log(error);
     }
-    setNombre("")
-    setRut("")
-    setEmail("")
+    window.location.reload();
 
 
   };
