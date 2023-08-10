@@ -1,0 +1,39 @@
+version: '3'
+services:
+  db_test:
+    image: mariadb
+    hostname: test
+    environment:
+      MYSQL_ROOT_PASSWORD: pf$6#iAEQ#@y7vMnXiTXLLC#wiEHcn
+      MYSQL_DATABASE: test
+      MYSQL_USER: manager_test
+      MYSQL_PASSWORD: RqoKdtp88Z94v7vL#XKVHPxWdb9dw
+    volumes:
+      - ./Base de datos/test.sql:/docker-entrypoint-initdb.d/init.sql
+      - data:/var/lib/mysql
+    ports:
+      - 3306:3306
+    networks:
+      - red 
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: dockerfile
+    ports:
+      - 5000:5000
+    networks:
+      - red 
+  backend:
+    build:
+      context: .
+      dockerfile: ./Backend/dockerfile
+    ports:
+      - 4000:4000
+    networks:
+      - red 
+volumes:
+   data:
+     external: false
+networks:
+    red:
+      name: red
