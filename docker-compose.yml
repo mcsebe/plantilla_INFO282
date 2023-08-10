@@ -14,26 +14,45 @@ services:
     ports:
       - 3306:3306
     networks:
-      - red 
-  frontend:
-    build:
-      context: ./Frontend
-      dockerfile: dockerfile
-    ports:
-      - 5000:5000
-    networks:
-      - red 
+      - red
+
   backend:
     build:
       context: .
       dockerfile: ./Backend/dockerfile
     ports:
       - 4000:4000
+    depends_on:
+      - db_test
+    environment:
+      DB_NAME: test
+      DB_USER: manager_test
+      DB_PASSWORD: RqoKdtp88Z94v7vL#XKVHPxWdb9dw
+      DB_HOST: db_test
+      DB_DRIVER: mysql
+      ORIGIN: http://0.0.0.0:3000
+      IP: 0.0.0.0
+      PORT: 4000
     networks:
-      - red 
+      - red
+
+  frontend:
+    build:
+      context: ./Frontend
+      dockerfile: dockerfile
+    ports:
+      - 3000:3000
+    environment:
+      VITE_APP_HOST : 127.0.0.1
+      VITE_APP_PORT : 3000
+      VITE_BACKEND_URL :  "http://0.0.0.0:4000"
+    networks:
+      - red
+
 volumes:
-   data:
-     external: false
+  data:
+    external: false
+
 networks:
-    red:
-      name: red
+  red:
+    name: red
