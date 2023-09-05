@@ -34,10 +34,7 @@ services:
       dockerfile: dockerfile
     ports:
       - 3000:3000
-    environment:
-      VITE_APP_HOST : 0.0.0.0
-      VITE_APP_PORT : 3000
-      VITE_BACKEND_URL :  http://0.0.0.0:4000
+    
     networks:
       - red
 
